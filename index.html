@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <div class="logo"><img src="logo.png" alt="KM Logo"></div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="coursework.html">Coursework</a></li>
-                <li><a href="projectsoverview.html">Projects Overview</a></li>
+                <li class="dropdown">
+                    <a href="projectsoverview.html" class="dropdown-toggle">Projects Overview</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="powerapp.html">Power App Development</a></li>
+                        <li><a href="powerbi.html">Power BI Development</a></li>
+                    </ul>
+                </li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -26,16 +31,6 @@
 
     <!-- MAIN LAYOUT -->
     <div class="container">
-
-        <!-- SIDEBAR -->
-        <aside>
-            <h3>Project Details</h3>
-            <ul>
-                <li><a href="powerapp.html">Power App Development</a></li>
-                <li><a href="powerbi.html">Power BI Development</a></li>
-            </ul>
-        </aside>
-
         <!-- MAIN CONTENT -->
         <main>
 
@@ -44,9 +39,9 @@
                 <h1>Kase's Project Portfolio</h1>
 
                 <div class="card-container">
-                    <div class="card">Power App Showcase Image</div>
-                    <div class="card"><img src="TrainingHome1.png" alt="Power BI Showcase Image"></div>
-                    <div class="card">Contact Me</div>
+                    <div class="card"><a href=powerapp.html><img src="TrainingRequest.png" alt="Power App Showcase Image"></a></div>
+                    <div class="card"><a href=powerbi.html><img src="TrainingHome1.png" alt="Power BI Showcase Image"></a></div>
+                    <div class="card"><a href=contact.html><img src="ContactMe2.png" alt="Contact Me"></a></div>
                 </div>
             </section>
 
@@ -60,8 +55,8 @@
                 <h2>Welcome to My Site!</h2>
                 <p>
                     This project portfolio serves as a showcase of my work in data analytics and science, with a focus on Power Apps and Power BI development.
-                    Here, you can explore my projects, learn about the tools and techniques I use, and see how I apply my skills to solve real-world problems.
-                    Whether you're interested in my coursework, project overviews, or just want to get in touch, this site has something for everyone. Thank you for visiting!
+                    Here, you can explore my projects and coursework, learn about the tools and techniques I use, and see how I apply my skills to solve real-world problems.
+                    Whether you're interested in my coursework, projects, or just want to get in touch, this site has something for everyone. Thank you for visiting!
                 </p>
             </section>
 
