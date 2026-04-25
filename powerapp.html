@@ -32,177 +32,173 @@
 </header>
 
 <div class="container">
-<main>
+    <main>
 
-<section class="welcome">
-    <h1>Training Request Power App Showcase</h1>
+        <section class="welcome">
+            <h1>Training Request Power App Showcase</h1>
 
-    <p>
-        A model-driven, request-workflow Power App designed to manage training requests through a structured
-        four-stage lifecycle with role-based notifications and Dataverse integration.
-    </p>
-</section>
-<br>
-
-<section class="intro">
-    <h2>Application Overview</h2>
-    <p>
-        The Training Request application streamlines submission, review, creation, and publication of training requests and their resulting training materials..
-        It is built using a model-driven Power App architecture leveraging Dataverse tables and automated workflows.
-    </p>
-<hr>    
-</section>
-
-<section class="intro">
-    <h2>Data Model &amp; Solution Objects</h2>
-    <p>The solution consists of several objects that are breifly explained below:</p>
-<br>
-
-<ul>
-    <li>
-        <strong>TR_Headers (Primary Table)</strong> - Stores all training request records including the title, category, department, building, training document file uploads, and metadata.
-    </li>
-    <br>
-    <li>
-        <strong>TR_Roles</strong> - Contains user-assigned roles used to drive email notifications and approval routing logic. For example, Trainer and Trainer Manager roles receive notifications during the Training Review and Training Creation stages.
-    </li>
-    <br>
-    <li>
-        <strong>App</strong> - The model-driven Power App interface used by end users to create, review, manage, and track training requests.
-    </li>
-    <br>
-    <li>
-        <strong>Choices</strong> - There are 7 global choices which gives the user a drop-down menu selection or multi-selection options.
-    </li>
-    <br>
-    <li>
-        <strong>Cloud Flows</strong> - There are 2 Power Automate cloud flows that trigger on record creation and business process flow stage changes to send email notifications to users based on their assigned roles.
-    </li>
-    <br>
-    <li>
-        <strong>Connection References</strong> - The connection references link to both the Dataverse and Outlook 365 for the cloud flows to access data and send emails.
-    </li>
-    <br>
-    <li>
-        <strong>Environment Variables</strong> - There are two environment variables used to create the url link to the power app in the email notifications.
-    </li>
-    <br>
-    <li>
-        <strong>Processes</strong> - The business process flow guides the Training Request record through the four lifecycle stages.
-    </li>
-    <br>
-    <li>
-        <strong>Security Role</strong> - Access to the app is controlled through a custom security role that grants permissions to the TR_Headers and TR_Roles tables, as well as access to the app itself. Users must be assigned this role to interact with the application.
-    </li>
-    <br>
-    <li>
-        <strong>Site Map</strong> - Navigation structure that organizes tables, dashboards, and pages within the model-driven app.
-    </li>
-</ul>
-<br>
-<figure>
-    <img src="TrainingRequestSolutionObjects.png" alt="Training Request Solution Objects" class="image">
-    <figcaption>Figure 1: Overview of the Training Request Solution Objects</figcaption>
-</figure>
-<hr>
-</section>
-
-<section class="intro">
-    <h2>Process Flow</h2>
-    <br>
-    <p>The application follows a structured four-stage lifecycle:</p>
-    <br>
-    <ul>
-        <li><strong>Stage 1:</strong> Training Request</li>
+            <p>
+                A model-driven, request-workflow Power App designed to manage training requests through a structured
+                four-stage lifecycle with role-based notifications and Dataverse integration.
+            </p>
+        </section>
         <br>
-        <li><strong>Stage 2:</strong> Training Review</li>
+
+        <section class="intro">
+            <h2>Application Overview</h2>
+            <br>
+            <p>
+                The Training Request application streamlines submission, review, creation, and publication of training requests and their resulting training materials..
+                It is built using a model-driven Power App architecture leveraging Dataverse tables and automated workflows.
+            </p>
+        <hr>    
+        </section>
+
+        <section class="intro">
+            <h2>Data Model &amp; Solution Objects</h2>
+            <br>
+            <p>The solution consists of several objects that are breifly explained below:</p>
         <br>
-        <li><strong>Stage 3:</strong> Training Creation</li>
+
+        <ul>
+            <li>
+                <strong>TR_Headers (Primary Table)</strong> - Stores all training request records including the title, category, department, building, training document file uploads, and metadata.
+            </li>
+
+            <li>
+                <strong>TR_Roles</strong> - Contains user-assigned roles used to drive email notifications and approval routing logic. For example, Trainer and Trainer Manager roles receive notifications during the Training Review and Training Creation stages.
+            </li>
+
+            <li>
+                <strong>App</strong> - The model-driven Power App interface used by end users to create, review, manage, and track training requests.
+            </li>
+
+            <li>
+                <strong>Choices</strong> - There are 7 global choices which gives the user a drop-down menu selection or multi-selection options.
+            </li>
+
+            <li>
+                <strong>Cloud Flows</strong> - There are 2 Power Automate cloud flows that trigger on record creation and business process flow stage changes to send email notifications to users based on their assigned roles.
+            </li>
+
+            <li>
+                <strong>Connection References</strong> - The connection references link to both the Dataverse and Outlook 365 for the cloud flows to access data and send emails.
+            </li>
+
+            <li>
+                <strong>Environment Variables</strong> - There are two environment variables used to create the url link to the power app in the email notifications.
+            </li>
+
+            <li>
+                <strong>Processes</strong> - The business process flow guides the Training Request record through the four lifecycle stages.
+            </li>
+
+            <li>
+                <strong>Security Role</strong> - Access to the app is controlled through a custom security role that grants permissions to the TR_Headers and TR_Roles tables, as well as access to the app itself. Users must be assigned this role to interact with the application.
+            </li>
+
+            <li>
+                <strong>Site Map</strong> - Navigation structure that organizes tables, dashboards, and pages within the model-driven app.
+            </li>
+        </ul>
         <br>
-        <li><strong>Stage 4:</strong> Training Available</li>
-    </ul>
-<hr>    
-</section>
+        <figure>
+            <img src="TrainingRequestSolutionObjects.png" alt="Training Request Solution Objects" class="image">
 
-<section class="intro">
-    <h2>Stage Walkthrough</h2>
-    <br>
-    <figure>
-        <div class="stage-block">
-            <h3>Training Request Stage</h3>
-            <br>
-            <img src="NewTrainingRequest.png" alt="Training Request stage part 1 screenshot" class="image" style="width:100%; max-width:900px;">
-            <br>
-            <figcaption>Figure 2: Training Request Stage, the requestor fills out the title of the training, category, department, building, due date, training description, and uploads the training document after saving the record.</figcaption>
-            <br>
-            <img src="NewTrainingRequest4.png" alt="Training Request stage part 2 screenshot" class="image" style="width:100%; max-width:900px;">
-            <br>
-            <figcaption>Figure 3: After filling out all required fields, the requestor selects yes for Training Request complete and moves the request to the Training Review stage.</figcaption>            
-        </div>
-    <hr>        
-    </figure>
+            <figcaption>Figure 1: Overview of the Training Request Solution Objects</figcaption>
+        </figure>
+        <hr>
+        </section>
 
-    <figure>
-        <div class="stage-block">
-            <h3>Training Request Stage</h3>
+        <section class="intro">
+            <h2>Process Flow</h2>
             <br>
-            <img src="TrainingReview.png" alt="Training Review stage screenshot" class="image" style="width:100%; max-width:900px;">
+            <p>The application follows a structured four-stage lifecycle:</p>
             <br>
-            <figcaption>Figure 4: Training Review Stage, the reviewer evaluates the training request and either approves or rejects it. If they approve it, the push the request to the Training Creation stage.</figcaption>         
-        </div>
-    <hr>        
-    </figure>
+            <ul>
+                <li><strong>Stage 1:</strong> Training Request</li>
 
-    <figure>
-        <div class="stage-block">
-            <h3>Training Creation Stage</h3>
+                <li><strong>Stage 2:</strong> Training Review</li>
+
+                <li><strong>Stage 3:</strong> Training Creation</li>
+
+                <li><strong>Stage 4:</strong> Training Available</li>
+            </ul>
+        <hr>    
+        </section>
+
+        <section class="intro">
+            <h2>Stage Walkthrough</h2>
+
+            <figure class="stage-block">
+                    <h3>Training Request Stage</h3>
+
+                    <img src="NewTrainingRequest.png" alt="Training Request stage part 1 screenshot" class="image" style="width:100%; max-width:900px;">
+
+                    <figcaption>Figure 2: Training Request Stage, the requestor fills out the title of the training, category, department, building, due date, training description, and uploads the training document after saving the record.</figcaption>
+            </figure>
+            <figure class="stage-block">
+                    <img src="NewTrainingRequest4.png" alt="Training Request stage part 2 screenshot" class="image" style="width:100%; max-width:900px;">
+
+                    <figcaption>Figure 3: After filling out all required fields, the requestor selects yes for Training Request complete and moves the request to the Training Review stage.</figcaption>            
+            </figure>
+            <hr>  
+            <figure class="stage-block">
+                    <h3>Training Request Stage</h3>
+
+                    <img src="TrainingReview.png" alt="Training Review stage screenshot" class="image" style="width:100%; max-width:900px;">
+
+                    <figcaption>Figure 4: Training Review Stage, the reviewer evaluates the training request and either approves or rejects it. If they approve it, the push the request to the Training Creation stage.</figcaption>                
+            </figure>
+            <hr> 
+            <figure class="stage-block">
+                    <h3>Training Creation Stage</h3>
+
+                    <img src="TrainingCreation.png" alt="Training Creation stage screenshot" class="image" style="width:100%; max-width:900px;">
+
+                    <figcaption>Figure 5: Training Creation Stage, this stage gives the trainer time to create the training content in a secondary platform. Once they complete the content, they move the record to the Training Available stage.</figcaption>         
+       
+            </figure>
+            <hr> 
+            <figure class="stage-block">
+                    <h3>Training Available Stage</h3>
+
+                    <img src="TrainingAvailable.png" alt="Training Available stage screenshot" class="image" style="width:100%; max-width:900px;">
+
+                    <figcaption>Figure 6: Training Available Stage, this stage indicates that the training is ready for learners to access. The trainer can then finish the Training Request record.</figcaption>         
+       
+            </figure>    
+            <hr> 
+        </section>
+
+        <section class="intro">
+            <h2>Email Notifications</h2>
             <br>
-            <img src="TrainingCreation.png" alt="Training Creation stage screenshot" class="image" style="width:100%; max-width:900px;">
+            <p>
+                It is importatnt to note that each stage of the Training Request process triggers email notifcations to users. All cloud flow email notification contain a hyperlink to the power app record for users to easily access the training request that they need to review or view. Below is a summary of the email notifications for each stage:
+            </p>
             <br>
-            <figcaption>Figure 5: Training Creation Stage, this stage gives the trainer time to create the training content in a secondary platform. Once they complete the content, they move the record to the Training Available stage.</figcaption>         
-        </div>
-    <hr>        
-    </figure>
+            <ul>
+                <li>Record creation in the Training Request stage: an email is sent to the requestor notifying them that they created a new training request.</li>
 
-    <figure>
-        <div class="stage-block">
-            <h3>Training Available Stage</h3>
+                <li>Training Review stage: an email is sent to the training team notifying them that a new training request is ready for review. If the request is rejected and the stage is pushed back to Training Request, then the original requestor is notified that their request was rejected.</li>
+
+                <li>Training Creation stage: an email is sent to the training team notifying them that the training request has been approved and is ready for training content creation.</li>
+
+                <li>Training Available stage: an email is sent to learners based on the department and/or building selections in the training request and the predefined roles in the TR_Roles table, notifying them that the training is now available.</li>
+            </ul>
+        </section>
+
+        <section class="intro">
+            <h2>Summary</h2>
             <br>
-            <img src="TrainingAvailable.png" alt="Training Available stage screenshot" class="image" style="width:100%; max-width:900px;">
-            <br>
-            <figcaption>Figure 6: Training Available Stage, this stage indicates that the training is ready for learners to access. The trainer can then finish the Training Request record.</figcaption>         
-        </div>
-    <hr>        
-    </figure>    
+            <p>
+                This Power App demonstrates a full lifecycle workflow system integrating Dataverse,
+                role-based notifications, and structured business process stages for training management.
+            </p>
+        </section>
 
-</section>
-
-<section class="intro">
-    <h2>Email Notifications</h2>
-    <p>
-        It is importatnt to note that each stage of the Training Request process triggers email notifcations to users. All cloud flow email notification contain a hyperlink to the power app record for users to easily access the training request that they need to review or view. Below is a summary of the email notifications for each stage:
-    </p>
-    <br>
-    <ul>
-        <li>Record creation in the Training Request stage: an email is sent to the requestor notifying them that they created a new training request.</li>
-        <br>
-        <li>Training Review stage: an email is sent to the training team notifying them that a new training request is ready for review. If the request is rejected and the stage is pushed back to Training Request, then the original requestor is notified that their request was rejected.</li>
-        <br>
-        <li>Training Creation stage: an email is sent to the training team notifying them that the training request has been approved and is ready for training content creation.</li>
-        <br>
-        <li>Training Available stage: an email is sent to learners based on the department and/or building selections in the training request and the predefined roles in the TR_Roles table, notifying them that the training is now available.</li>
-    </ul>
-</section>
-
-<section class="intro">
-    <h2>Summary</h2>
-    <p>
-        This Power App demonstrates a full lifecycle workflow system integrating Dataverse,
-        role-based notifications, and structured business process stages for training management.
-    </p>
-</section>
-
-</main>
+    </main>
 </div>
 
 <footer>
